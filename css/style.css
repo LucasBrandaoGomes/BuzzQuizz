@@ -1,5 +1,7 @@
 /* TELA1 */
-
+.escondido{
+    display: none;
+}
 /* topo */
 .tela1{
     display: flex;
@@ -102,7 +104,6 @@ span{
 
 }
 .imagensQuizzes{
-    background-color: aqua;
     position: relative;
     box-sizing: border-box;
     margin-bottom: 12px;
