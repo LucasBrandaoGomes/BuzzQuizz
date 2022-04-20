@@ -6,9 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700&family=Fredoka:wght@300;400&family=Righteous&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>BuzzQuizz</title>
 </head>
 <body>
+    <div class="tela8 escondido">
+        <header>
+            <h1>BuzzQuizz</h1>
+        </header>
+        <h4>Comece pelo começo</h4>
+        <div class="centralizar">
+            <section>
+                <div class="titulo">
+                    <input type="text" placeholder="Título do seu quizz" minlength="20" maxlength="64">
+                </div>
+                <div class="imagem">
+                    <input type="text" placeholder="URL da imagem do seu quizz">
+                </div>
+                <div class="pergunta">
+                    <input type="text" placeholder="Quantidade de perguntas do quizz">
+                </div>
+                <div class="nivel">
+                    <input type="text" placeholder="Quantidade de níveis do quizz">
+                </div>
+            </section>
+        </div>
+        <div class="centralizar">
+            <button disabled>
+                <h3>Prosseguir pra criar perguntas</h3>
+            </button>
+        </div>
+    </div>
+
     <script src="scripts.js"></script>
 </body>
 </html>

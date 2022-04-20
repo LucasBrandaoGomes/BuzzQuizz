@@ -1,0 +1,114 @@
+.escondido{
+    display: none;
+}
+.tela8{
+    background-color: #FAFAFA;
+}
+header{
+    width: 100%;
+    height: auto;
+    background-color: #EC362D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+header h1{
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 43px;
+    font-family: 'Roboto', sans-serif;
+}
+.tela8 h4{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 27px;
+    margin-top: 84px;
+    margin-bottom: 27px;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+}
+.centralizar{
+ display: flex;
+ justify-content: center;
+}
+section{
+    background-color: #FFFFFF;
+    width: 600px;
+    height: 265px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+section .titulo input,
+section .imagem input,
+section .pergunta input,
+section .nivel input{
+    width: 564px;
+    height: 46px;
+    padding-left: 23px;
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 9px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    box-sizing: border-box;
+    border-radius: 5px;
+    
+}
+section .titulo,
+section .imagem,
+section .pergunta,
+section .nivel{
+    padding-left: 16px;
+}
+section .titulo{
+    padding-top: 21px;
+}
+button{
+    background-color: #EC362D;
+    width: 368px;
+    height: 54px;
+    border-radius: 15px;
+    margin-top: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button h3{
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+}
+@media (max-width: 1100px) {
+    section{
+        width: 100%;
+    }
+    section .titulo input,
+    section .imagem input,
+    section .pergunta input,
+    section .nivel input{
+    width: 100%;
+    padding-left: 14px;
+}
+section .titulo,
+section .imagem,
+section .pergunta,
+section .nivel{
+    padding-left: 8px;
+    padding-right: 8px;
+    box-sizing: border-box;
+}
+button{
+    width: 324px;
+}
+button h3{
+    font-size: 18px;
+}
+}
