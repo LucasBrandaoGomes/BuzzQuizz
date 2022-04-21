@@ -14,7 +14,7 @@
     <title>BuzzQuizz</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container escondido">
         <div class="tela1">
             <div class="top">BuzzQuizz</div>
             <header>
@@ -34,34 +34,34 @@
             </main>
         </div>
     </div>
-    <div class="tela3 escondido">
+    <div class="tela2 escondido">
     <div class="top">BuzzQuizz</div>
 
     </div>
     <!--GABRIELA-->
-    <div class="tela8 escondido">
+    <div class="tela3">
         <header class="cabecalho">
             <h1>BuzzQuizz</h1>
         </header>
         <h4>Comece pelo começo</h4>
         <div class="centralizar">
-            <section>
-                <div class="titulo">
-                    <input type="text" placeholder="Título do seu quizz" minlength="20" maxlength="64">
-                </div>
-                <div class="imagem">
+            <section class="formulario1">
+                <form class="titulo">
+                    <input type="text" placeholder="Título do seu quizz" maxlength="64">
+                </form>
+                <form class="imagem">
                     <input type="text" placeholder="URL da imagem do seu quizz">
-                </div>
-                <div class="pergunta">
-                    <input type="text" placeholder="Quantidade de perguntas do quizz">
-                </div>
-                <div class="nivel">
-                    <input type="text" placeholder="Quantidade de níveis do quizz">
-                </div>
+                </form>
+                <form class="pergunta">
+                    <input type="text" placeholder="Quantidade de perguntas do quizz" name="quantity" min="3">
+                </form>
+                <form class="nivel">
+                    <input type="text" placeholder="Quantidade de níveis do quizz" name="quantity" min="2">
+                </form>
             </section>
         </div>
         <div class="centralizar">
-            <button disabled>
+            <button class="botaoFormulario1" onclick="camposPreenchidos()">
                 <h3>Prosseguir pra criar perguntas</h3>
             </button>
         </div>

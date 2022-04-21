@@ -1,7 +1,7 @@
 .escondido{
     display: none;
 }
-.tela8{
+.tela3{
     background-color: #FAFAFA;
 }
 .cabecalho{
@@ -21,7 +21,7 @@
     line-height: 43px;
     font-family: 'Roboto', sans-serif;
 }
-.tela8 h4{
+.tela3 h4{
     display: flex;
     justify-content: center;
     font-weight: 700;
@@ -36,16 +36,16 @@
  display: flex;
  justify-content: center;
 }
-section{
+.formulario1{
     background-color: #FFFFFF;
     width: 600px;
     height: 265px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
-section .titulo input,
-section .imagem input,
-section .pergunta input,
-section .nivel input{
+.formulario1 .titulo input,
+.formulario1 .imagem input,
+.formulario1 .pergunta input,
+.formulario1 .nivel input{
     width: 564px;
     height: 46px;
     padding-left: 23px;
@@ -60,16 +60,16 @@ section .nivel input{
     border-radius: 5px;
     
 }
-section .titulo,
-section .imagem,
-section .pergunta,
-section .nivel{
+.formulario1 .titulo,
+.formulario1 .imagem,
+.formulario1 .pergunta,
+.formulario1 .nivel{
     padding-left: 16px;
 }
-section .titulo{
+.formulario1 .titulo{
     padding-top: 21px;
 }
-button{
+.botaoFormulario1{
     background-color: #EC362D;
     width: 368px;
     height: 54px;
@@ -79,7 +79,7 @@ button{
     align-items: center;
     justify-content: center;
 }
-button h3{
+.botaoFormulario1 h3{
     font-weight: 400;
     font-size: 21px;
     line-height: 25px;
@@ -87,35 +87,32 @@ button h3{
     font-family: 'Roboto', sans-serif;
 }
 @media (max-width: 1100px) {
-    section{
+    .formulario1{
         width: 100%;
     }
-    section .titulo input,
-    section .imagem input,
-    section .pergunta input,
-    section .nivel input{
+    .formulario1 .titulo input,
+    .formulario1 .imagem input,
+    .formulario1 .pergunta input,
+    .formulario1 .nivel input{
     width: 100%;
     padding-left: 14px;
 }
-    section .titulo,
-    section .imagem,
-    section .pergunta,
-    section .nivel{
+    .formulario1 .titulo,
+    .formulario1 .imagem,
+    .formulario1 .pergunta,
+    .formulario1 .nivel{
         padding-left: 8px;
         padding-right: 8px;
         box-sizing: border-box;
     }
-    button{
+    .botaoFormulario1{
     width: 324px;
 }
-button h3{
+    .botaoFormulario1 h3{
     font-size: 18px;
 }
 }
 /* TELA1 */
-.escondido{
-    display: none;
-}
 /* topo */
 .tela1{
     display: flex;
