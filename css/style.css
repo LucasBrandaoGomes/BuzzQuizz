@@ -1,7 +1,7 @@
 .escondido{
     display: none;
 }
-.tela8{
+.tela3{
     background-color: #FAFAFA;
 }
 .cabecalho{
@@ -21,7 +21,7 @@
     line-height: 43px;
     font-family: 'Roboto', sans-serif;
 }
-.tela8 h4{
+.tela3 h4{
     display: flex;
     justify-content: center;
     font-weight: 700;
@@ -112,10 +112,8 @@ button h3{
     font-size: 18px;
 }
 }
-/* TELA1 */
-.escondido{
-    display: none;
-}
+
+/* ========== TELA 1 ========== */ 
 /* topo */
 .tela1{
     display: flex;
@@ -143,9 +141,7 @@ button h3{
     color: #FFFFFF;
 
     box-sizing: border-box;
-    margin-bottom: 77px;
 }
-
 /* área do usuário */
 
 header{
@@ -169,6 +165,8 @@ header{
 
     box-sizing: border-box;
     margin-bottom: 77px;
+    margin-top: 77px;
+
 }
 span{
     display:block;
@@ -206,6 +204,15 @@ span{
 }
 
 /* conteudo - qizzes */
+
+.corpo2{
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 
 .todosQuizzes{
     width: 1052px;
@@ -253,7 +260,94 @@ span{
 
     color: #FFFFFF;
 }
+
+/* ========== TELA2 ========== */
+
+.tela2 top{
+    position: fixed;
+}
+.imagemTop{
+    position: relative;
+    background-color: #FAFAFA;
+}
+.tituloQuizz{
+    position:absolute;
+    top: 25%;
+    left: 540px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 39px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+.imagemTop img{
+    width: 100%;
+    height: 227px;
+    object-fit: cover;
+}
+
+.perguntas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 759px;
+    box-sizing: border-box;
+    margin-top: 42px;
+    padding-left: 36.43px;
+    padding-right:  36.43px;
+    padding-top: 27.92px ;
+    padding-bottom: 17.05px;
+
+    background-color: #FFFFFF
+
+}
+.pergunta{
+    width: 687.5px;
+    height: 137.99px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: blueviolet;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 27px;
+
+    color: #FFFFFF;
+
+    box-sizing: border-box;
+    margin-bottom: 18.61px;
+}
+.opcoes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.opcoes img{
+    width: 329.91px;
+    height: 175.2px;
+}
+.opcao span{
+    box-sizing: border-box;
+    margin-top: 7.75px;
+    margin-bottom: 18.61px;
+}
+
 @media (max-width: 1100px) {
+    /*TELA 1 */
+    
     .tela1{
         width: 100%;
     }
@@ -272,5 +366,7 @@ span{
     }
     .todosOsQuizzes{
         box-sizing: border-box;
-}
+    }
+    
+    /* TELA 2 */
 }

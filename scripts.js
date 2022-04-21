@@ -1,7 +1,4 @@
-function liberarBotao(){
 
-    
-}
 let quizzes = [];
 const divtodosQuizzes = document.querySelector(".corpo").querySelector(".todosQuizzes");
 const API = "https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes";
@@ -20,7 +17,7 @@ function renderizarQuizzes(divtodosQuizzes){
     divtodosQuizzes.innerHTML = "";
     for (let i=0; i<quizzes.length; i++){
         divtodosQuizzes.innerHTML +=
-        `<div class="imagensQuizzes" onclick="irParaQuizz(this)">
+        `<div class="imagensQuizzes" onclick="irParaQuizz(this)" alt="imagem do quizz">
             <img src="${quizzes[i].image}" alt="imagem-quizz">
             <span class="legendaQuizz">${quizzes[i].title}</span>
         </div>`
@@ -28,13 +25,54 @@ function renderizarQuizzes(divtodosQuizzes){
 }
 pegarListaQuizes()
 
+/* IR PARA CRIAR QUIZZ AO CLICAR NO BOTÃO CRIAR QUIZZ OU + */
+
+
+function criarQuizz(){
+    const botaoCriarQuizz = document.querySelector(".usuario").querySelector("button")
+
+    if (botaoCriarQuizz !== null) {
+
+        const tela1 = document.querySelector(".containerTela1")
+        const tela3 = document.querySelector(".tela3")
+
+        setTimeout(() => trocarDeTela(tela1,tela3) , 500);
+        
+    }
+}
+function trocarDeTela(telaA, telaB){
+    
+    telaA.classList.add("escondido");
+    telaB.classList.remove("escondido");
+}
+
 /* IR PARA O QUIZZ ESCOLHIDO */
 
-/*function irParaQuizz(){
-    
+function irParaQuizz(elemento){
+    const botaoIrParaQuizz = document.querySelector(".todosQuizzes")
 
+    if(botaoIrParaQuizz !== null){
+        console.log(elemento)
+        const tela1 = document.querySelector(".containerTela1")
+        const tela2 = document.querySelector(".containerTela2")
+        tela1.classList.add("escondido");
+        tela2.classList.remove("escondido") /* renderizarUnicoQuizz() */
+        
+        /* localizando ID pelo título do Quizz */
 
-}*/
+        const tituloQuizz = document.querySelector(".imagensQuizzes").querySelector(".legendaQuizz").innerHTML;
+        console.log(tituloQuizz)
+       
+    }
+}    
 
-/* CRIAR QUIZZ */
-
+function acharQuizz(){
+    const tituloQuizz = document.querySelector(".imagensQuizzes").querySelector(".legendaQuizz").innerHTML;    
+    if (quizzes.title === "Quanto otaku você é?"){
+        return true
+    }else{
+        return false
+    }
+}
+const oQuizz = quizzes.filter(acharQuizz)
+console.log(oQuizz)

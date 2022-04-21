@@ -14,13 +14,13 @@
     <title>BuzzQuizz</title>
 </head>
 <body>
-    <div class="container">
+    <div class="containerTela1">
         <div class="tela1">
             <div class="top">BuzzQuizz</div>
             <header>
                 <div class="usuario">
                     <span> Você não possui nenhum Quizz ainda :(</span>
-                    <button>Criar Quizzz</button>
+                    <button onclick="criarQuizz()">Criar Quizzz</button>
                 </div>
             </header>
             <main class="corpo">                
@@ -34,12 +34,84 @@
             </main>
         </div>
     </div>
-    <div class="tela3 escondido">
-    <div class="top">BuzzQuizz</div>
+    <div class="containerTela2 escondido">
+        <div class="tela2">
+            <div class="top">BuzzQuizz</div>
+            <div class="imagemTop"><img src="img/IMG-20180726-WA0006.jpg" alt="imagem do quizz">"</div>
+            <span class="tituloQuizz">${quizzes[i].title}</span>
+            <main class="corpo2">
+                <div class="perguntas">
+                    <div class="pergunta"><span>pergunta?</span></div>
+                    <div class="opcoes">
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da primeira opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da segunda opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da terceira opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da quarta opcao">
+                            <span>Resposta</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="perguntas">
+                    <div class="pergunta"><span>pergunta?</span></div>
+                    <div class="opcoes">
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da primeira opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da segunda opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da terceira opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da quarta opcao">
+                            <span>Resposta</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="perguntas">
+                    <div class="pergunta"><span>pergunta?</span></div>
+                    <div class="opcoes">
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da primeira opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da segunda opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da terceira opcao">
+                            <span>Resposta</span>
+                        </div>
+                        <div class="opcao">
+                            <img src="img/IMG-20180726-WA0006.jpg" alt="imagem da quarta opcao">
+                            <span>Resposta</span>
+                        </div>
+                    </div>
+                </div>
 
-    </div>
+
+            </main>          
+
+        </div>
+    </div>    
+
     <!--GABRIELA-->
-    <div class="tela8 escondido">
+    <div class="tela3 escondido">
         <header class="cabecalho">
             <h1>BuzzQuizz</h1>
         </header>
