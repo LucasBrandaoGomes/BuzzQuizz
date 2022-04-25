@@ -111,7 +111,7 @@
         </div>
     </div>    
 
-    <!--GABRIELA-->
+    <!--TELA 3 - GABRIELA-->
     <div class="tela3 escondido">
         <header class="cabecalho">
             <h1>BuzzQuizz</h1>
@@ -123,9 +123,9 @@
                     <input type="text" placeholder="Título do seu quizz" maxlength="64">
                 </form>
                 <form class="imagem">
-                    <input type="text" placeholder="URL da imagem do seu quizz">
+                    <input type="url" name="url" id="url" placeholder="URL da imagem do seu quizz" pattern="https://.*" required>
                 </form>
-                <form class="pergunta">
+                <form class="quantidadePerguntas">
                     <input type="text" placeholder="Quantidade de perguntas do quizz" name="quantity" min="3">
                 </form>
                 <form class="nivel">
@@ -139,8 +139,34 @@
             </button>
         </div>
     </div>
+    <!--TELA 4 - GABRIELA-->
+    <div class="tela4 escondido">
+        <header class="cabecalho">
+            <h1>BuzzQuizz</h1>
+        </header>
+        <h4>Crie suas perguntas</h4>
+        <div class="centralizar">
+            <section class="formulario2">
+                
+            </section>
+        </div>
+        <div class="centralizar">
+            <div class="perguntasRestantes">
+               
+            </div>
+        </div>
+        <div class="centralizar">
+            <button class="botaoFormulario2" onclick="camposPreenchidosPerguntas()">
+                <p>Prosseguir pra criar níveis</p>
+            </button>
+        </div>
+    </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
