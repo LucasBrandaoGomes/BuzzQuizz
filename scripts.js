@@ -162,12 +162,11 @@ function selecionarOpcao(elemento){
 
         }else{
             opcoesReferentes[i].classList.add("vermelho")
-            qtdEscolhas+=1
-            console.log(qtdEscolhas)
 
 
             opcoesReferentes[i].removeEventListener("click", selecionarOpcao)
-        }   
+        }
+
     }
     
 }
