@@ -1,6 +1,4 @@
 let quantasPerguntas = [];
-
-
 let titulo;
 let imagem;
 let pergunta;
@@ -76,11 +74,10 @@ function irParaQuizz(elemento){
     }   
 }    
 function carregarUnicoQuizz(response){
-    let quizz = response.data
+    quizz = response.data
     renderizarUnicoQuizz(quizz)
 }
 function renderizarUnicoQuizz(quizz){
-    console.log(quizz)
     const divUnicoQuizzTopo = document.querySelector(".containerTela2").querySelector(".tela2");
 
     divUnicoQuizzTopo.innerHTML += `
@@ -97,18 +94,18 @@ function renderizarUnicoQuizz(quizz){
     for (let i=0; i<quizz.questions.length; i++){
         stringUnica += `
             <div class="perguntas">
-                <div class="pergunta"><span>${quizz.questions[i].title}</span></div>
+                <div class="pergunta" style='background-color:${quizz.questions[i].color}'"><span>${quizz.questions[i].title}</span></div>
                 <div class="opcoes">`
                     for (let j=0; j<quizz.questions[i].answers.length; j++){
                         if (quizz.questions[i].answers[j].isCorrectAnswer){
                             stringUnica += 
-                            `<div class="opcao respostaCorreta" onclick="selecionarOpcao(this)">
+                            `<div class="opcao respostaCerta" onclick="selecionarOpcao(this)">
                                 <img src=${quizz.questions[i].answers[j].image} alt="imagem da primeira opcao">
                                 <span>${quizz.questions[i].answers[j].text}</span>
                             </div>`
                         }else{
                             stringUnica += 
-                            `<div class="opcao respostaIncorreta" onclick="selecionarOpcao(this)">
+                            `<div class="opcao respostaErrada" onclick="selecionarOpcao(this)">
                                 <img src=${quizz.questions[i].answers[j].image} alt="imagem da primeira opcao">
                                 <span>${quizz.questions[i].answers[j].text}</span>
                             </div>`
@@ -121,19 +118,10 @@ function renderizarUnicoQuizz(quizz){
     document.querySelector(".imagemTop").scrollIntoView()
 }
     stringUnica +=`
-            <div class="resultado">
-                <div class="cabecalhoResultado">
-                    <span>88% de acerto: Você é praticamente um aluno de Hogwarts!</span>
-                </div>
-                <div class="imagemTextoResultado">
-                    <img src="img/IMG-20180726-WA0006.jpg">
-                    <div>
-                        <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão
-                            abaixo para usar o vira-tempo e reiniciar este teste.</p>
-                    </div>
-                </div>
+            <div class="pontos escondido">
+                
             </div>
-            <div class="botaoReiniciarQuizz">
+            <div class="botaoReiniciarQuizz" onclick="reiniciar()">
                 <span>Reiniciar Quizz</span>
             </div>
             <div class="botaoHome" onclick="home()">
@@ -141,39 +129,87 @@ function renderizarUnicoQuizz(quizz){
             </div>`
 
     divUnicoQuizzPerguntas.innerHTML= stringUnica
+
+    document.querySelector(".imagemTop").scrollIntoView()
+
 }
 
 let qtdAcertos = 0;
 let qtdEscolhas = 0;
-
+let porcentagemAcertos;
 function selecionarOpcao(elemento){
-    const divUnicoQuizzPerguntas = document.querySelector(".containerTela2").querySelector(".tela2")
     let perguntaReferente = elemento.parentNode;
-    console.log(perguntaReferente)
     let opcoesReferentes = perguntaReferente.querySelectorAll(".opcao")
-    console.log(opcoesReferentes)
+    if (elemento.classList.contains("respostaCerta")){
+        qtdAcertos+=1
+    }
+
     for (let i=0; i<opcoesReferentes.length; i++){
         opcoesReferentes[i].classList.add("esmaecido")
 
-        if (opcoesReferentes[i].classList.contains("respostaCorreta")){
+        if (opcoesReferentes[i].classList.contains("respostaCerta")){
             opcoesReferentes[i].classList.add("verde");
-            opcoesReferentes[i].classList.remove("esmaecido");
-            qtdAcertos+=1
-            console.log(qtdAcertos)
-            
+
             opcoesReferentes[i].removeEventListener("click", selecionarOpcao);
 
         }else{
             opcoesReferentes[i].classList.add("vermelho")
-            qtdEscolhas+=1
-            console.log(qtdEscolhas)
-
 
             opcoesReferentes[i].removeEventListener("click", selecionarOpcao)
-        }   
+        }
+
+    }
+    qtdEscolhas+=1
+    elemento.classList.remove("esmaecido")
+
+    const divResultado = document.querySelector(".containerTela2").querySelector(".tela2").querySelector(".pontos")
+
+    if (qtdEscolhas=== quizz.questions.length){
+        divResultado.classList.remove("escondido")
+        porcentagemAcertos=((qtdAcertos/qtdEscolhas)*100).toFixed(0)
+        divResultado.innerHTML+=`
+                <div class="resultado">
+                    <div class="cabecalhoResultado">
+                        <span>${porcentagemAcertos}% de acerto: ${quizz.levels[qualNivel(quizz, porcentagemAcertos)].title}</span>
+                    </div>
+                    <div class="imagemTextoResultado">
+                        <img src=${quizz.levels[qualNivel(quizz, porcentagemAcertos)].image}>
+                        <div>
+                            <p>${quizz.levels[qualNivel(quizz, porcentagemAcertos)].text}</p>
+                        </div>
+                    </div>
+                </div>` 
     }
     
 }
+function qualNivel(quizz,porcentagemAcertos){
+    let minLevelsValue =[]
+    for (let i=0;i<quizz.levels.length; i++){
+         minLevelsValue.push(quizz.levels[i].minValue)
+    }
+    minLevelsValue.push(porcentagemAcertos)
+    minLevelsValue.sort()
+    
+    let index = minLevelsValue.indexOf(porcentagemAcertos)
+    let valorMinimo;
+
+    if (minLevelsValue[index] === minLevelsValue[index+1]){
+        valorMinimo = minLevelsValue[index+1]
+    }else{
+        valorMinimo = minLevelsValue[index-1]
+    }
+
+    for (let x = 0; x<quizz.levels.length; x++){
+        if(quizz.levels[x].minValue === valorMinimo){
+            return (x)
+        }
+    }
+}
+
+function home(){
+    window.location.reload();
+}
+
 
 /*tela3-gabs*/
 let qtdPerguntas;
