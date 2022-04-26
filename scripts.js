@@ -1,6 +1,5 @@
-let quantasPerguntas = [];
 let titulo;
-let imagem;
+let imagemQuizz;
 let pergunta;
 let nivel;
 let quizz;
@@ -212,6 +211,10 @@ function home(){
 
 
 /*tela3-gabs*/
+const infoQuizzUsuario = {
+            
+}
+
 let qtdPerguntas;
 function camposPreenchidos(){
     titulo = document.querySelector(".titulo").querySelector("input");
@@ -228,6 +231,12 @@ function camposPreenchidos(){
         alert("Preencha os dados corretamente!");
     }
     entradaPerguntas();
+    infoQuizzUsuario = {
+    title:`${titulo.value}` ,
+    image:`${imagemQuizz.value}`,
+    questions:`${pergunta}`,
+    levels:`${nivel}` 
+}  
 }
 /*TELA 4 - GABS*/
 entradaPerguntas();
@@ -235,8 +244,8 @@ entradaPerguntas();
 function entradaPerguntas(){
     qtdPerguntas = Number(pergunta.value);
     for(let i = 1; i <= qtdPerguntas; i++){
-        let qtd = adcPergunta(i);
-        quantasPerguntas.push(qtd);
+        adcPergunta(i);
+        
     }
 }
 
@@ -306,10 +315,10 @@ function camposPreenchidosPerguntas(){
     for(let i = 0; i < inputForm.length; i++){                    
         console.log(inputForm[i].value);
         if(inputForm[i].value !== ""){
-        
+            
             console.log('foi');
         } else {
-            console.log("n foi");
+            alert("Preencha os dados corretamente!");
         }
     } 
 
