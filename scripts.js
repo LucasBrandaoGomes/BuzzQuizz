@@ -121,7 +121,7 @@ function renderizarUnicoQuizz(quizz){
             <div class="pontos escondido">
                 
             </div>
-            <div class="botaoReiniciarQuizz">
+            <div class="botaoReiniciarQuizz" onclick="reiniciar()">
                 <span>Reiniciar Quizz</span>
             </div>
             <div class="botaoHome" onclick="home()">
@@ -207,14 +207,10 @@ function qualNivel(quizz,porcentagemAcertos){
 }
 
 function home(){
-    const tela1 = document.querySelector(".containerTela1")
-    const tela2 = document.querySelector(".containerTela2")
-    
-    console.log(tela1)
-    console.log(tela2)
-
-    trocarDeTela(tela2,tela1);
+    window.location.reload();
 }
+
+
 /*tela3-gabs*/
 let qtdPerguntas;
 function camposPreenchidos(){
