@@ -400,12 +400,11 @@ function camposPreenchidosNiveis(){
        
     }
     console.log(listaInfoNivel)
+
 }
-    //const tela5 = document.querySelector(".tela5")
-    //const tela6 = document.querySelector(".tela6")
-
-    //setTimeout(() => trocarDeTela(tela4,tela5) , 500);
-
+function montarObjetoQuizz(){
+    
+}
 
 function armazenarQuizz(){
     let promessa = axios.post('https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes',
