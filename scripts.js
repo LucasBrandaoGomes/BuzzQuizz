@@ -179,11 +179,11 @@ function selecionarOpcao(elemento){
 let qtdPerguntas;
 function camposPreenchidos(){
     titulo = document.querySelector(".titulo").querySelector("input");
-    imagem = document.querySelector(".imagem").querySelector("input");
+    imagemQuizz = document.querySelector(".imagem").querySelector("input");
     pergunta = document.querySelector(".quantidadePerguntas").querySelector("input");
     nivel = document.querySelector(".nivel").querySelector("input");
     botao = document.querySelector("button");
-    if (((titulo.value !== "") && (titulo.value.length >= 20)) && (imagem.value !== "") && ((pergunta.value !=="") && (Number(pergunta.value) >= 3)) && ((nivel.value !== "") && (Number(nivel.value) >= 2))){
+    if ((titulo.value.length >= 20) && (imagemQuizz.value !== "") && ((pergunta.value !=="") && (Number(pergunta.value) >= 3)) && ((nivel.value !== "") && (Number(nivel.value) >= 2))){
         const tela3 = document.querySelector(".tela3");
         const tela4 = document.querySelector(".tela4");
         qtdPerguntas = Number(pergunta.value);
@@ -194,34 +194,37 @@ function camposPreenchidos(){
     entradaPerguntas();
 }
 /*TELA 4 - GABS*/
-adcPergunta();
 entradaPerguntas();
 
 function entradaPerguntas(){
     qtdPerguntas = Number(pergunta.value);
-    for(let i = 1; i < qtdPerguntas; i++){
+    for(let i = 1; i <= qtdPerguntas; i++){
         let qtd = adcPergunta(i);
         quantasPerguntas.push(qtd);
     }
 }
 
-function adcPergunta(indice){
+function adcPergunta(i){
    let totalPerguntas = document.querySelector(".perguntasRestantes");
-   totalPerguntas.innerHTML += `
-                                <div class="escondePergunta" onclick="infoPerguntas(this); camposPreenchidosPerguntas()">
-                                    <div class="pergunta2">
-                                        <h2>Pergunta</h2>
-                                        <ion-icon name="create-outline"></ion-icon>
+   for(let i = 1; i <= qtdPerguntas; i++);
+   totalPerguntas.innerHTML += `<div class="formu">
+                                    <div class="escondePergunta" onclick="infoPerguntas(this)">
+                                        <div class="pergunta2">
+                                            <h2>Pergunta ${i}</h2>
+                                            <ion-icon name="create-outline"></ion-icon>
+                                        </div>
                                     </div>
                                 </div>`
 }
 function infoPerguntas(elemento){
+
+    console.log(elemento);
     elemento.classList.add("escondido");
-
-    let form2 = document.querySelector(".formulario2");
-
-    form2.innerHTML +=`<div class="formulario2-1">
-    <h3 class="pergunta1">Pergunta</h3>
+    let form2 = document.querySelectorAll(".formu");
+    console.log(form2);
+    for(let j = 0; j < form2.length; j++){
+    form2[j].innerHTML =`<div class="formulario2-1">
+    <h3 class="pergunta1">Pergunta ${j+1}</h3>
     <form class="pergunta1texto">
         <input type="text" placeholder="Texto da pergunta">
     </form>
@@ -258,31 +261,28 @@ function infoPerguntas(elemento){
     <form class="imagemIncorreta3">
         <input type="url" name="url" id="url" placeholder="URL da imagem 3" pattern="https://.*" required>
     </form>
-</div>` 
+</div>` }
 }
 
 function camposPreenchidosPerguntas(){
-    let textoPergunta = document.querySelector(".pergunta1texto input");
-    let corPergunta = document.querySelector(".pergunta1cor input");
-    let repostaCerta = document.querySelector(".respostaTexto input");
-    let imgRespostaCerta = document.querySelector(".imagemCorreta input");
-    let resptIncorreta1 = document.querySelector(".incorreta1 input");
-    let imgIncorreta1 = document.querySelector(".imagemIncorreta1 input");
-    let resptIncorreta2 = document.querySelector(".incorreta2 input");
-    let imgIncorreta2 = document.querySelector(".imagemIncorreta2 input");
-    let resptIncorreta3 = document.querySelector(".incorreta3 input");
-    let imgIncorreta3 = document.querySelector(".imagemIncorreta3 input");
+    let inputForm = document.querySelectorAll(".formulario2 input");
+    console.log(inputForm);
+    for(let i = 0; i < inputForm.length; i++){                    
+        console.log(inputForm[i].value);
+        if(inputForm[i].value !== ""){
+        
+            console.log('foi');
+        } else {
+            console.log("n foi");
+        }
+    } 
 
-    if((textoPergunta.value.length >= 20) && (corPergunta.value !== "") && (repostaCerta.value !== "") && 
-    (imgRespostaCerta.value !== "") && (resptIncorreta1.value !== "") && (imgIncorreta1.value !== "") && 
-    (resptIncorreta2.value !== "") && (imgIncorreta2.value !== "") && (resptIncorreta3.value !== "") && (imgIncorreta3.value !== "")){
-        console.log("botão funciona")
-    } else {
-        alert("Preencha os dados corretamente!");
-    }
 }
 
-
+function armazenarQuizz(){
+    let promessa = axios.post('https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes',
+    {});
+}
 
 
 //console.log(qtdPerguntas)

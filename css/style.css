@@ -2,7 +2,9 @@
     display: none;
 }
 .tela3,
-.tela4{
+.tela4,
+.tela5,
+.tela6{
     background-color: #FAFAFA;
 }
 .cabecalho{
@@ -23,7 +25,9 @@
     font-family: 'Roboto', sans-serif;
 }
 .tela3 h4,
-.tela4 h4{
+.tela4 h4,
+.tela5 h4,
+.tela6 h4{
     display: flex;
     justify-content: center;
     font-weight: 700;
@@ -485,7 +489,8 @@ span{
     /* TELA 2 */
 }
 /* TELA 3 - GABS */
-.formulario2{
+.formulario2,
+.formulario3{
     width: 600px;
     height: auto;
     background-color: #FFFFFF;
@@ -494,7 +499,8 @@ span{
 }
 .pergunta1,
 .respostaCorreta,
-.respostasIncorreta{
+.respostasIncorreta,
+.tituloNivel{
     font-family: 'Roboto', sans-serif;
     color: #000000;
     font-style: normal;
@@ -504,7 +510,8 @@ span{
     margin-bottom: 14px;
     padding-left: 17px;
 }
-.pergunta1{
+.pergunta1,
+.tituloNivel{
     padding-top: 27px;
 }
 .pergunta1texto input,
@@ -513,7 +520,11 @@ span{
 .imagemIncorreta1 input,
 .incorreta2 input,
 .imagemIncorreta2 input,
-.incorreta3 input{
+.incorreta3 input,
+.textoNivel input,
+.porcentagemNivel input,
+.imagemNivel input,
+.descricaoNivel input{
     margin-bottom: 14px;
 }
 .pergunta1texto input,
@@ -525,7 +536,11 @@ span{
 .incorreta2 input,
 .imagemIncorreta2 input,
 .incorreta3 input,
-.imagemIncorreta3 input{
+.imagemIncorreta3 input,
+.textoNivel input,
+.porcentagemNivel input,
+.imagemNivel input,
+.descricaoNivel input{
     width: 564px;
     height: 46px;
     font-style: italic;
@@ -549,7 +564,11 @@ span{
 .incorreta2,
 .imagemIncorreta2,
 .incorreta3,
-.imagemIncorreta3{
+.imagemIncorreta3,
+.textoNivel,
+.porcentagemNivel,
+.imagemNivel,
+.descricaoNivel{
     padding-left: 17px;
 }
 .imagemIncorreta3,
@@ -558,7 +577,8 @@ span{
     margin-bottom: 27px;
 }
 .pergunta2,
-.pergunta3{
+.pergunta3,
+.quadroNivel{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -567,14 +587,16 @@ span{
     background-color: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
-.pergunta2{
+.pergunta2,
+.quadroNivel{
     margin-bottom: 22px;
 }
 .pergunta3{
     margin-bottom: 81px;
 }
 .pergunta2 h2,
-.pergunta3 h2{
+.pergunta3 h2,
+.quadroNivel h2{
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -584,23 +606,76 @@ span{
     padding-left: 17px;
 }
 .pergunta2 ion-icon,
-.pergunta3 ion-icon{
+.pergunta3 ion-icon,
+.quadroNivel ion-icon{
     font-size: 26px;
     color: #000000;
     padding-right: 24px;
 }
-.botaoFormulario2{
+.botaoFormulario2,
+.botaoFormulario3{
     width: 352.82px;
     height: 54px;
     background-color: #EC362D;
     border-radius: 15px;
     margin-bottom: 50px;
 }
-.botaoFormulario2 p{
+.botaoFormulario2 p,
+.botaoFormulario3 p{
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
     line-height: 25px;
     color: #FFF5F4;
+}
+/*TELA 6 - GABS*/
+.imgQuizzFinal{
+    width: 500px;
+    height: 266px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url(image.png);
+    border-radius: 5px;
+    margin-bottom: 45px;
+    position: relative;
+}
+.tela6 h4{
+    margin-bottom: 46px;
+}
+.botaoFinal{
+    width: 220.32px;
+    height: 44px;
+    background: #EC362D;
+    border-radius: 15px;
+    margin-bottom: 9px;
+}
+.botaoFinal p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #FFF5F4;
+}
+.tela6 h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #818181;
+}
+.nomeDoQuizz{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 27px;
+    color: #FFFFFF;
+    z-index: 1;
+    display: flex;
+    
+}
+.estiloNome{
+    width: 309px;
+    height: 54px;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
 }
