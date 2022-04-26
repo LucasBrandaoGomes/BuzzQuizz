@@ -211,12 +211,11 @@ function home(){
 
 
 /*tela3-gabs*/
-const infoQuizzUsuario = {
-            
+const infoQuizzUsuario = {         
 }
-
+let qtdNiveis;
 let qtdPerguntas;
-function camposPreenchidos(){
+function camposPreenchidos(infoQuizzUsuario){
     titulo = document.querySelector(".titulo").querySelector("input");
     imagemQuizz = document.querySelector(".imagem").querySelector("input");
     pergunta = document.querySelector(".quantidadePerguntas").querySelector("input");
@@ -225,6 +224,7 @@ function camposPreenchidos(){
     if ((titulo.value.length >= 20) && (imagemQuizz.value !== "") && ((pergunta.value !=="") && (Number(pergunta.value) >= 3)) && ((nivel.value !== "") && (Number(nivel.value) >= 2))){
         const tela3 = document.querySelector(".tela3");
         const tela4 = document.querySelector(".tela4");
+        qtdNiveis = Number(nivel.value)
         qtdPerguntas = Number(pergunta.value);
         setTimeout(() => trocarDeTela(tela3,tela4) , 500);
     } else {
@@ -235,11 +235,10 @@ function camposPreenchidos(){
     title:`${titulo.value}` ,
     image:`${imagemQuizz.value}`,
     questions:`${pergunta}`,
-    levels:`${nivel}` 
-}  
+    levels:`${nivel}`
+    } 
 }
 /*TELA 4 - GABS*/
-entradaPerguntas();
 
 function entradaPerguntas(){
     qtdPerguntas = Number(pergunta.value);
@@ -263,10 +262,9 @@ function adcPergunta(i){
 }
 function infoPerguntas(elemento){
 
-    console.log(elemento);
     elemento.classList.add("escondido");
     let form2 = document.querySelectorAll(".formu");
-    console.log(form2);
+
     for(let j = 0; j < form2.length; j++){
     form2[j].innerHTML =`<div class="formulario2-1">
     <h3 class="pergunta1">Pergunta ${j+1}</h3>
@@ -308,21 +306,106 @@ function infoPerguntas(elemento){
     </form>
 </div>` }
 }
+const listaPerguntaCor = []
+const listaRespostaCorreta = []
+const listaRespostasIncorretas = []
 
 function camposPreenchidosPerguntas(){
-    let inputForm = document.querySelectorAll(".formulario2 input");
-    console.log(inputForm);
-    for(let i = 0; i < inputForm.length; i++){                    
-        console.log(inputForm[i].value);
-        if(inputForm[i].value !== ""){
-            
-            console.log('foi');
-        } else {
-            alert("Preencha os dados corretamente!");
-        }
-    } 
+
+    let form = document.querySelectorAll(".formu")
+    for(let i = 0; i < form.length; i++){
+        let form21 = form[i].querySelector(".formulario2-1").querySelectorAll("form input")
+        let form22 = form[i].querySelector(".formulario2-2").querySelectorAll("form input")
+        let form23 = form[i].querySelector(".formulario2-3").querySelectorAll("form input")                
+            for (let j = 0; j<form21.length; j++){
+                
+                listaPerguntaCor.push(form21[j].value)
+                listaRespostaCorreta.push(form22[j].value)
+            }
+            for (let k=0; k<form23.length;k++){
+                listaRespostasIncorretas.push(form23[k].value)
+            }
+    }
+    const tela4 = document.querySelector(".tela4")
+    const tela5 = document.querySelector(".tela5")
+
+    setTimeout(() => trocarDeTela(tela4,tela5) , 500);
+    entradaNiveis(qtdNiveis)
+}
+
+
+// TELA 5 //
+
+
+function entradaNiveis(qtdNiveis){
+    for(let i = 1; i <= qtdNiveis; i++){
+        adcNivel(i);  
+    }
+}
+function adcNivel(i){
+   let totalNiveis = document.querySelector(".tela5").querySelector(".formuNivel");
+   for(let i = 1; i <= qtdNiveis; i++);
+   totalNiveis.innerHTML += `
+            <div class="englobaNivel">
+                <div class="containerNivel" onclick="infoNivel(this)">
+                    <div class="quadroNivel">
+                        <h2>Nível ${i}</h2>
+                        <ion-icon name="create-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>`
 
 }
+function infoNivel(elemento){
+    elemento.classList.add("escondido");
+
+    let formNivel = document.querySelector(".tela5").querySelectorAll(".englobaNivel");
+
+    for(let j = 0; j < formNivel.length; j++){
+    formNivel[j].innerHTML = `
+                    <h3 class="tituloNivel">Nível ${j+1}</h3>
+                    <form class="textoNivel">
+                        <input type="text" placeholder="Título do nível">
+                    </form>
+                    <form class="porcentagemNivel">
+                        <input type="text" placeholder="% de acerto mínima">
+                    </form>
+                    <form class="imagemNivel">
+                        <input type="url" name="url" id="url" placeholder="URL da imagem do nível" pattern="https://.*" required>
+                    </form>
+                    <form class="descricaoNivel">
+                        <input type="text" placeholder="Descrição do nível">
+                    </form>`
+}
+}
+
+const listaInfoNivel = []
+
+function camposPreenchidosNiveis(){
+
+    let form = document.querySelector(".tela5").querySelectorAll(".englobaNivel")
+
+    console.log(form)
+
+    for(let i = 0; i < form.length; i++){
+
+        let formInfoNivel = form[i].querySelectorAll("form input")
+
+        console.log(formInfoNivel)
+
+            for (let j = 0; j<formInfoNivel.length; j++){
+
+                listaPerguntaCor.push(formInfoNivel[j].value)
+            }    
+       
+    }
+    console.log(listaInfoNivel)
+}
+    //const tela5 = document.querySelector(".tela5")
+    //const tela6 = document.querySelector(".tela6")
+
+    //setTimeout(() => trocarDeTela(tela4,tela5) , 500);
+
 
 function armazenarQuizz(){
     let promessa = axios.post('https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes',

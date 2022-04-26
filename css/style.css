@@ -646,7 +646,15 @@ span{
     line-height: 25px;
     color: #FFF5F4;
 }
+.formuNivel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /*TELA 6 - GABS*/
+
+
 .imgQuizzFinal{
     width: 500px;
     height: 266px;
